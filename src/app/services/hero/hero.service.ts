@@ -18,6 +18,11 @@ export class HeroService {
     return heroes;
   }
 
-  
+  // Retourne un Observable<Hero> qui émet une seule valeur, le héros dont l'ID est passé en paramètre
+  getHero(id: number): Observable<Hero> {
+    const hero = HEROES.find(h => h.id === id)!;
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(hero);
+  }
 
 }
