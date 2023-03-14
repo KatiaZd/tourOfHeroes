@@ -10,25 +10,16 @@ import { MessageService } from '../../services/message/message.service';
 })
 
 export class HeroesComponent implements OnInit {
-
-    // Déclaration de la propriété selectedHero
-    selectedHero?: Hero;
-
     // Déclaration de la propriété selectedHero
     heroes: Hero[] = [];
+
     
-    constructor(private heroService: HeroService, private messageService: MessageService) {}
+    constructor(private heroService: HeroService) {}
 
     // Méthode appelée au chargement du composant, récupération des héros
     ngOnInit(): void {
       this.getHeroes();
     }
-
-    // Gestion du clic sur un héro
-    onSelect(hero: Hero): void {
-      this.selectedHero = hero;
-      this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
 
     // Observable : méthode appelée au chargement du composant, récupération des héros
     getHeroes(): void {
@@ -36,11 +27,23 @@ export class HeroesComponent implements OnInit {
           .subscribe(heroes => this.heroes = heroes);
     }
 
+  }
+
+
+    // Déclaration de la propriété selectedHero
+    // selectedHero?: Hero;
+
+    // Gestion du clic sur un héro
+    //   onSelect(hero: Hero): void {
+    //     this.selectedHero = hero;
+    //     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+    // }
+
 
     // Méthode appelée au chargement du composant, récupération des héros - Mauvaise pratique !!
     // getHeroes(): void {
     //   this.heroes = this.heroService.getHeroes();
     // }
 
-  }
+ 
 
