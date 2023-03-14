@@ -47,7 +47,8 @@
     cursor: auto;
   }
 
-/* HeroesComponent's private CSS styles */
+/* Style du HeroComponent */
+
 .heroes {
   margin: 0 0 2em 0;
   list-style-type: none;
