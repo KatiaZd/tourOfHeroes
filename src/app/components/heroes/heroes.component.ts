@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../hero';
 import { HeroService } from '../../services/hero/hero.service';
-import { MessageService } from '../../services/message/message.service';
+// import { MessageService } from '../../services/message/message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -12,7 +12,6 @@ import { MessageService } from '../../services/message/message.service';
 export class HeroesComponent implements OnInit {
     // Déclaration de la propriété selectedHero
     heroes: Hero[] = [];
-
     
     constructor(private heroService: HeroService) {}
 

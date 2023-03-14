@@ -1,14 +1,16 @@
 <div *ngIf="hero">
 
     <h2>{{hero.name | uppercase}} Details</h2>
-    <div>id: {{hero.id}}</div>
+    
+    <div>
+      <span>id: </span>{{hero.id}}
+    </div>
 
     <div>
       <label for="hero-name">Hero name: </label>
       <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">    <!-- ngModel : pas disponible par défaut. Importer FormsModule dans app.module.ts -->
     </div>
 
-  </div>
-
   <button type="button" (click)="goBack()">go back</button>
 
+</div>
