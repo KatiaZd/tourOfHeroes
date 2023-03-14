@@ -33,4 +33,9 @@ export class HeroDetailComponent {
       .subscribe(hero => this.hero = hero);
   }
 
+  // Sert à retourner à la page précédente
+  goBack(): void {
+    this.location.back();
+  }
+
 }
