@@ -2,12 +2,12 @@
 
     <h2>{{hero.name | uppercase}} Details</h2>
     <div>id: {{hero.id}}</div>
+
     <div>
       <label for="hero-name">Hero name: </label>
-      
-      <!-- ngModel : pas disponible par défaut. Importer FormsModule dans app.module.ts -->
-      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name"> <!-- ngModel : pas disponible par défaut. Importer FormsModule dans app.module.ts -->
     </div>
+
   </div>
 
 
