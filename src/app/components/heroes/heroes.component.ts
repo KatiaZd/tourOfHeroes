@@ -15,6 +15,12 @@ export class HeroesComponent implements OnInit {
     
     constructor(private heroService: HeroService) {}
 
+    // Suppression d'un héro
+    delete(hero: Hero): void {
+      this.heroes = this.heroes.filter(h => h !== hero);
+      this.heroService.deleteHero(hero.id).subscribe();
+    }
+
     // Gestion du clic sur un héro
     // En réponse à un événement de clic, appelez le gestionnaire de clic du composant, add(), puis effacez le champ de saisie afin qu'il soit prêt pour un autre nom.
     add(name: string): void {
