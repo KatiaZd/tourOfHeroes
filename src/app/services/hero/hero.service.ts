@@ -11,7 +11,7 @@ import { catchError, map, tap } from 'rxjs/operators';            // Gestion des
   providedIn: 'root'
 })
 export class HeroService {
-
+  // L'API Web Heroes attend un en-tête spécial dans les demandes de sauvegarde HTTP. Cet en-tête se trouve dans la constante httpOptions définie dans HeroService.
   private heroesUrl = 'api/heroes';  // URL vers l'API web
 
   httpOptions = {
@@ -92,6 +92,7 @@ export class HeroService {
   }
 
   // Met à jour le héros sur le serveur
+  // L'URL est la même que pour la méthode getHero() (api/heroes/:id). L'URL est inchangée. L'API Web des héros sait quel héros mettre à jour en consultant l'identifiant du héros.
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),

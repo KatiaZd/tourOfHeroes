@@ -21,6 +21,14 @@ export class HeroDetailComponent {
     private location: Location
   ) {}
 
+  // Sert à sauvegarder les modifications
+  save(): void {
+    if (this.hero) {
+      this.heroService.updateHero(this.hero)
+        .subscribe(() => this.goBack());
+    }
+  }
+
   // Sert à récupérer l'ID du héros à afficher
   ngOnInit(): void {
     this.getHero();
