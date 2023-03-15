@@ -1,0 +1,16 @@
+<div id="search-component">
+    <label for="search-box">Hero Search</label>
+    
+    <!-- Chaque fois que l'utilisateur tape dans la zone de texte, la liaison appelle search() avec la valeur de la zone de texte comme terme de recherche. Le searchTerms devient un Observable émettant un flux constant de termes de recherche. -->
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  
+    <!-- Lorsque l'utilisateur tape dans la zone de recherche, une liaison d'événement d'entrée appelle la méthode search() du composant avec la nouvelle valeur de la zone de recherche -->
+    <ul class="search-result">
+        <!-- heroes$ = convention pour indiquer que c'est un observable pas un tableau? ngFor ne peut rien faire avec un observable, donc on ajoute le pipe async d'Angular. ça nous permet de ne pas le faire dans la classe du composant-->
+        <li *ngFor="let hero of heroes$ | async" >   
+            <a routerLink="/detail/{{hero.id}}">
+            {{hero.name}}
+            </a>
+        </li>
+    </ul>
+</div>
