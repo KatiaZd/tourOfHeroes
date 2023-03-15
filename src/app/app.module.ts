@@ -9,6 +9,10 @@ import { HeroDetailComponent } from './components/hero-detail/hero-detail.compon
 import { MessagesComponent } from './components/messages/messages.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component'; 
 
+import { HttpClientModule } from '@angular/common/http'; // <-- HttpClient, communiquer avec le serveur distant via Http
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; // <-- InMemoryWebApiModule, simuler un serveur distant
+import { InMemoryDataService } from './services/inMemoryData/in-memory-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(               // Le module HttpClientInMemoryWebApiModule intercepte les requêtes HTTP et retourne des réponses simulées du serveur. A supprimer lorsque un serveur réel est prêt pour recevoir les requêtes.
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
