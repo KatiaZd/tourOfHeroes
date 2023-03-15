@@ -74,6 +74,8 @@ export class HeroService {
   // Méthode d'enregistrement 
 
   // Ajout d'un nouveau héros avec HttpClient.post() (au serveur)
+  // Différent de la méthode updateHero() qui met à jour un héros existant.
+  // addHero appelle HttpClient.post() au lieu de put() & Il s'attend à ce que le serveur crée un identifiant pour le nouveau héros, qu'il renvoie dans Observable<Hero> à l'appelant
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
       tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)), 
